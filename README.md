@@ -62,8 +62,9 @@ O script `bootstrap.sh` instala dependências (`uv sync`) e aplica a migration i
 
 1. Garanta Docker Engine/Compose v2 instalados.
 2. Ajuste `.env` se necessário (por padrão já aponta `DATABASE_HOST=db`).
-3. Rode `./run.sh` na raiz do projeto.
-	- Internamente executa `docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml up --build` com hot reload.
+3. Rode `./run.sh`.
+	- O script executa `docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml up --build`, exibindo os logs do stack.
+	- Para finalizar, pressione `Ctrl+C` e, se necessário, limpe com `docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml down` dentro de `docker/`.
 4. API em `http://localhost:8001`; Postgres disponível em `localhost:5433` (usuário `falaai`, senha `falaaidevpass`).
 5. Para encerrar, `Ctrl+C` ou `docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml down` dentro de `docker/`.
 6. Migrations dentro do container: `docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml exec api uv run alembic <comando>`.
@@ -133,7 +134,7 @@ Alembic versiona o schema: cada arquivo em `alembic/versions` define como aplica
 - `scripts/bootstrap.sh` — instala dependências e roda migrations.
 - `scripts/migrate.sh` — aplica `alembic upgrade head`.
 - `scripts/create_admin.py` — cria um administrador via CLI.
-- `run.sh` — sobe o stack Docker com hot reload.
+- `run.sh` — inicia o stack Docker de desenvolvimento (API + Postgres) e mostra os logs.
 
 ## Testes
 

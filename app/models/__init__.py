@@ -1,4 +1,4 @@
 from app.models.usuario_admin import UsuarioAdmin
-# from app.models.novatabela import NovaTabela --- IGNORE ---
+from app.models.formulario import Formulario
 
-__all__ = ["UsuarioAdmin"]# "NovaTabela" ]
+__all__ = ["UsuarioAdmin", "Formulario"]

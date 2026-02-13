@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     algorithm: str = "HS256"
 
     database_host: str = "localhost"
-    database_port: int = 5432
+    database_port: int = 5433
     database_name: str = "fala_ai"
     database_user: str = "falaai"
     database_password: str = "falaaidevpass"

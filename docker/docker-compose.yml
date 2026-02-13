@@ -5,6 +5,9 @@ services:
       dockerfile: docker/Dockerfile
     env_file:
       - ../.env
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
     ports:
       - "8001:8000"
     depends_on:
